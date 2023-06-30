@@ -42,7 +42,8 @@
                         </tr>
                     </c:forEach>
                 </table>
-                <br /><a href="adduserform.jsp">Add New User</a>
+                <br /><a href="adduserform.jsp">Anadir Usuario</a>
+                <br /><a href="viewuserspage.jsp?page=1">Ver Usuarios Paginados</a> 
 
 </body>
 
