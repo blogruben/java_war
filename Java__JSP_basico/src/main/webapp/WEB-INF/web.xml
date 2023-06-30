@@ -1,0 +1,26 @@
+<web-app>  
+  
+<servlet>  
+<servlet-name>parametrosGlobales</servlet-name>  
+<jsp-file>/parametroInicio/mostrarVariable.jsp</jsp-file>  
+  
+<init-param>  
+<param-name>nombreDriver</param-name>  
+<param-value>sun.jdbc.odbc.Oracle</param-value>  
+</init-param>  
+  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>parametrosGlobales</servlet-name>  
+<url-pattern>/verParametros</url-pattern>  
+</servlet-mapping>  
+
+<jsp-config>
+  <jsp-property-group>
+    <url-pattern>*.jsp</url-pattern>
+    <page-encoding>UTF-8</page-encoding>
+  </jsp-property-group>
+</jsp-config>
+
+</web-app>  
