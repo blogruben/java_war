@@ -4,16 +4,13 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
 import com.ruben.java.web.bean.Usuario;
 
 
-@WebServlet(name="InitializeResources", urlPatterns="/cargaInicial", loadOnStartup=1)
+@WebServlet(name="InitServlet", urlPatterns="/cargaInicial", loadOnStartup=1)
 public class InitServlet extends HttpServlet {
 
     @Override

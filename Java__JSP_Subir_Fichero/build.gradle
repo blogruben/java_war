@@ -1,0 +1,36 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.gretty:gretty:3.0.1' 
+  }
+}
+
+apply plugin: 'war'
+apply plugin: 'org.gretty'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1' //container
+    implementation 'commons-fileupload:commons-fileupload:1.5' //subir ficheros
+}
+
+gretty {
+  httpPort = 8080
+  contextPath = '/'
+  servletContainer = 'jetty9'  // o 'tomcat9'
+	managedClassReload=true
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task wrapVersion(type: Wrapper) {
+   gradleVersion = '5.6' 
+}
+
