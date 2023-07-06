@@ -21,7 +21,7 @@ File file ;
 int maxFileSize = 5000 * 1024;
 int maxMemSize = 5000 * 1024;
 ServletContext context = pageContext.getServletContext();
-String filePath = context.getInitParameter("file-upload");
+String filePath = context.getInitParameter("rutaRelativa");
 this.log("filePath: "+filePath);
 
 this.log("Verify the content type");

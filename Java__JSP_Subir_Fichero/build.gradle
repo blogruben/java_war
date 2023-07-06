@@ -20,11 +20,20 @@ dependencies {
     implementation 'commons-fileupload:commons-fileupload:1.5' //subir ficheros
 }
 
+ext.directorioRelativo = System.getProperty("user.dir").replace('\\', '/')+"/storeFiles/"
+
 gretty {
   httpPort = 8080
   contextPath = '/'
   servletContainer = 'jetty9'  // o 'tomcat9'
 	managedClassReload=true
+  //loggingLevel='DEBUG'
+  //poner las variables en el web.xml al ejecutar gradle appStart
+  webappCopy {
+    filesMatching('WEB-INF/web.xml') {
+      filter {String line -> line.replaceAll('\\$\\{rutaRelativa\\}', directorioRelativo) }
+    }
+  }
 }
 
 sourceCompatibility = 1.8
@@ -34,3 +43,9 @@ task wrapVersion(type: Wrapper) {
    gradleVersion = '5.6' 
 }
 
+//poner las variables en el web.xml al compilar
+war {
+    filesMatching('WEB-INF/web.xml') {
+      filter {String line -> line.replaceAll('\\$\\{rutaRelativa\\}', directorioRelativo) }
+    }
+}
