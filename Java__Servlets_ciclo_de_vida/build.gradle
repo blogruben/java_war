@@ -1,0 +1,38 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.gretty:gretty:3.0.1' 
+  }
+}
+
+apply plugin: 'war'
+apply plugin: 'org.gretty'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    compile group: 'com.h2database', name: 'h2', version: '1.3.148'
+    testImplementation 'junit:junit:4.12'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+}
+
+gretty {
+  httpPort = 8080
+  contextPath = '/'
+  servletContainer = 'jetty9'  // o 'tomcat9'
+	managedClassReload=true
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task wrapVersion(type: Wrapper) {
+   gradleVersion = '5.6' 
+}
+
