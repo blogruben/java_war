@@ -4,11 +4,6 @@
 <servlet-name>parametrosGlobales</servlet-name>  
 <jsp-file>/parametroInicio/mostrarVariable.jsp</jsp-file>  
   
-<init-param>  
-<param-name>nombreDriver</param-name>  
-<param-value>sun.jdbc.odbc.Oracle</param-value>  
-</init-param>  
-  
 </servlet>  
   
 <servlet-mapping>  

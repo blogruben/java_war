@@ -1,0 +1,44 @@
+<web-app>  
+
+<jsp-config>
+  <jsp-property-group>
+    <url-pattern>*.jsp</url-pattern>
+    <page-encoding>UTF-8</page-encoding>
+  </jsp-property-group>
+</jsp-config>
+
+<welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+
+
+
+  <servlet>
+    <servlet-name>InitParamExample</servlet-name>
+    <servlet-class>
+    	org.ruben.jsp.variables.ParametroInicio
+    </servlet-class>
+    <init-param>
+    	<param-name>appUser</param-name>
+    	<param-value>Raul</param-value>
+    </init-param>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>InitParamExample</servlet-name>
+    <url-pattern>/parametros</url-pattern>
+  </servlet-mapping>
+
+  <context-param>
+    <param-name>DBUSER</param-name>
+    <param-value>elUsuario</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>DBPWD</param-name>
+    <param-value>laPass</param-value>
+  </context-param>
+  
+</web-app>  
