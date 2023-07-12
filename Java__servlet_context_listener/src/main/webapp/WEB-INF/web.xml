@@ -1,0 +1,14 @@
+<web-app>  
+
+<jsp-config>
+  <jsp-property-group>
+    <url-pattern>*.jsp</url-pattern>
+    <page-encoding>UTF-8</page-encoding>
+  </jsp-property-group>
+</jsp-config>
+
+<listener>
+        <listener-class>org.ruben.jsp.filtros.ListenerComun</listener-class>
+</listener>
+
+</web-app>  
