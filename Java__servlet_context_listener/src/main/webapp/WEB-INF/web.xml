@@ -8,7 +8,7 @@
 </jsp-config>
 
 <listener>
-        <listener-class>org.ruben.jsp.filtros.ListenerComun</listener-class>
+        <listener-class>org.ruben.jsp.filtros.ContextoListener</listener-class>
 </listener>
 
 </web-app>  
