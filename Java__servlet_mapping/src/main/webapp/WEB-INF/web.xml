@@ -23,4 +23,14 @@
         <url-pattern>/saludar/*</url-pattern>
 </servlet-mapping>
 
+<servlet>
+        <servlet-name>myJSP</servlet-name>
+        <jsp-file>hola.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>myJSP</servlet-name>
+        <url-pattern>/hola/*</url-pattern>
+</servlet-mapping>
+
 </web-app>  
