@@ -36,3 +36,5 @@ task wrapVersion(type: Wrapper) {
    gradleVersion = '5.6' 
 }
 
+defaultTasks 'clean', 'appStart'
+

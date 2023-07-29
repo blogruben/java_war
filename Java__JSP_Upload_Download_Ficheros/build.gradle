@@ -49,3 +49,5 @@ war {
       filter {String line -> line.replaceAll('\\$\\{rutaRelativa\\}', directorioRelativo) }
     }
 }
+
+defaultTasks 'clean', 'appStart'
