@@ -33,4 +33,15 @@
         <url-pattern>/hola/*</url-pattern>
 </servlet-mapping>
 
+  <servlet>
+    <servlet-name>myInicio</servlet-name>
+    <servlet-class>org.ruben.jsp.mapear.Inicio</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>myInicio</servlet-name>
+    <url-pattern>/inicio</url-pattern>
+  </servlet-mapping>
+
 </web-app>  
