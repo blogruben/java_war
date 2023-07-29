@@ -1,0 +1,68 @@
+<web-app>
+
+	<jsp-config>
+		<jsp-property-group>
+	    	<url-pattern>*.jsp</url-pattern>
+	    	<page-encoding>UTF-8</page-encoding>
+	  	</jsp-property-group>
+	</jsp-config>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>
+				Gerencia
+			</web-resource-name>
+			<url-pattern>
+				/app/gerentes/*
+			</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>gerente</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+        	<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    	</user-data-constraint>
+	</security-constraint>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>
+				Empleados
+			</web-resource-name>
+			<url-pattern>
+				/app/empleados/*
+			</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>empleado</role-name>
+			<role-name>*</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+        	<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    	</user-data-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>
+				/login/login.jsp
+			</form-login-page>
+			<form-error-page>
+				/login/error.jsp
+			</form-error-page>
+		</form-login-config>
+		<realm-name>Dominio</realm-name>
+	</login-config>
+
+    <security-role>
+        <role-name>gerente</role-name>
+		<role-name>empleado</role-name>
+    </security-role>
+
+	<error-page>
+    	<error-code>403</error-code>
+    	<location>/login/error403.jsp</location>
+	</error-page>
+
+</web-app>

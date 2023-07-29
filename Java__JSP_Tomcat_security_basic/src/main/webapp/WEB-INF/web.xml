@@ -1,0 +1,52 @@
+<web-app>
+
+	<servlet>
+		<servlet-name>
+		Programada
+		</servlet-name>
+		<servlet-class>
+		SeguridadProgramadaServlet
+		</servlet-class>
+		<security-role-ref>
+			<role-name>
+			supervisor
+			</role-name>
+			<role-link>
+			admin
+			</role-link>
+		</security-role-ref>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>
+		Programada
+		</servlet-name>
+		<url-pattern>
+		/zonaSegura
+		</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>
+			Protegido
+			</web-resource-name>
+			<url-pattern>
+			/zonaSegura/*
+			</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Dominio</realm-name>
+	</login-config>
+
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+
+</web-app>
