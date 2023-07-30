@@ -1,0 +1,44 @@
+<?xml version="1.0"?><!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
+
+ 
+ <Configure class="org.eclipse.jetty.webapp.WebAppContext">
+ 
+    <!-- Configuring JNDI env-entries para pasar variables a web.xml en runtime -->
+    <New class="org.eclipse.jetty.plus.jndi.EnvEntry">
+      <Arg></Arg><!-- scope -->
+      <Arg>myInteger</Arg><!-- name -->
+      <Arg type="java.lang.Integer">4000</Arg><!-- value -->
+      <!-- Si existe esta variable en web.xml decimos si la queremos sobreescribir, si no lo ponemos por defecto es no -->
+      <Arg type="boolean">false</Arg>
+    </New> 
+ 
+    <New class="org.eclipse.jetty.plus.jndi.EnvEntry">
+      <Arg></Arg>
+      <Arg>myString</Arg>
+      <Arg type="java.lang.String">texto</Arg>
+      <Arg type="boolean">true</Arg>
+    </New> 
+
+    <New class="org.eclipse.jetty.plus.jndi.EnvEntry">
+      <Arg></Arg>
+      <Arg>myBoolean</Arg>
+      <Arg type="java.lang.Boolean">true</Arg>
+      <Arg type="boolean">true</Arg>
+    </New> 
+
+    <New id="mysqldemo" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg><Ref refid="mysqldemo"/></Arg>
+        <Arg>jdbc/mydb</Arg>
+          <Arg>
+            <New class="org.h2.jdbcx.JdbcDataSource">
+                <Set name="URL">jdbc:h2:mem:test</Set>
+                <Set name="User"></Set>
+                <Set name="Password"></Set>
+                <!--Set name="Database">NorthWind</Set>
+                <Set name="Server">test</Set>
+                <Set name="Port">3306</Set>-->
+            </New>
+        </Arg>
+    </New>
+
+ </Configure>
