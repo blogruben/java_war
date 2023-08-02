@@ -19,10 +19,12 @@ public class H2 extends HttpServlet {
     {
         System.out.println("INICIO H2");
         try {
+            //a mano
             Class.forName("org.h2.Driver");
             Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "", "");
             System.out.println("Connection ->"+conn);
 
+            //usando el JNDI
             JdbcDataSource ds = new JdbcDataSource();
             ds.setURL("jdbc:h2:˜/test");
             ds.setUser("");

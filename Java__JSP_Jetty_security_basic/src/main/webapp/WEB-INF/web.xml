@@ -1,0 +1,22 @@
+<web-app>
+
+<security-constraint>
+  <web-resource-collection>
+    <web-resource-name>zona protegida</web-resource-name>
+    <url-pattern>/zonaSegura/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>adminRole</role-name>
+  </auth-constraint>
+</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Dominio</realm-name>
+	</login-config>
+
+    <security-role>
+        <role-name>adminRole</role-name>
+    </security-role>
+
+</web-app>
