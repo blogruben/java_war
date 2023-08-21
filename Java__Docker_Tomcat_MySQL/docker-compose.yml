@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  contenedorbbdd:
+    image: mysql:8.0.34
+    restart: unless-stopped
+    ports:
+       - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=bbddName
+    volumes:
+      - mysql-vol:/var/lib/mysql
+  app:
+    image: tomcat:8-jdk8-corretto
+    depends_on:
+      - contenedorbbdd
+    links:
+      - contenedorbbdd
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./docker/server.xml:/usr/local/tomcat/conf/server.xml
+      - ./docker/sample.war:/usr/local/tomcat/webapps/sample.war
+volumes:
+  mysql-vol:
