@@ -28,5 +28,5 @@ gradle release; docker-compose restart
 
 # Eliminar todo
 ```
-docker-compose down --volume
+docker-compose down --volume;docker image rm my-app my-db;
 ```
