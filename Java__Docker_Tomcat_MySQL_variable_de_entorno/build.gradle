@@ -12,7 +12,7 @@ dependencies {
 }
 
 war {
-    archiveFileName = 'sample.war'
+    archiveFileName = 'app.war'
 }
 
 sourceCompatibility = 1.8

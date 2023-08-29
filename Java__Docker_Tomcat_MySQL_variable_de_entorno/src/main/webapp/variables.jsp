@@ -6,12 +6,8 @@
     <title>Saludar</title>
 </head>
 <body>
-    <%@ page import="java.util.Iterator" %>
-    <%@ page import="java.util.Map" %> 
-    <%@ page import="java.util.Set" %> 
- 
+    <%@ page import="java.util.Iterator,java.util.Map,java.util.Set" %> 
     <h1>Estas son todas las variables de entorno</h1>
-
     <%
     Map map = System.getenv();
     Set keys = map.keySet();
@@ -22,7 +18,6 @@
         String value = (String) map.get(key);
         out.println("<p> "+key + " -> " + value+"</p>");
     }
-    
     %>
 </body>
 </html>
