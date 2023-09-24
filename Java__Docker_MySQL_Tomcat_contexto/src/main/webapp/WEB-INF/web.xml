@@ -1,0 +1,20 @@
+<web-app>  
+  
+<servlet>  
+  <servlet-name>inicio</servlet-name>  
+  <jsp-file>/variables.jsp</jsp-file>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>inicio</servlet-name>  
+<url-pattern>/</url-pattern>  
+</servlet-mapping>  
+
+<jsp-config>
+  <jsp-property-group>
+    <url-pattern>*.jsp</url-pattern>
+    <page-encoding>UTF-8</page-encoding>
+  </jsp-property-group>
+</jsp-config>
+
+</web-app>  

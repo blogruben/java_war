@@ -2,10 +2,14 @@ FROM tomcat:8-jdk8-corretto
 LABEL maintainer="blogruben"
 ADD app.war /usr/local/tomcat/webapps/
 COPY server.xml /usr/local/tomcat/conf/server.xml
+#conectar con mysql
+RUN cd lib; curl -H "Accept: application/zip" https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar > mysql-connector-java-8.0.28.jar
 ARG MYSQL_DATABASE
 ARG MYSQL_USER
 ARG MYSQL_PASSWORD
 ENV CATALINA_OPTS="-DMYSQL_DATABASE=$MYSQL_DATABASE -DMYSQL_USER=$MYSQL_USER -DMYSQL_PASSWORD=$MYSQL_PASSWORD"
-EXPOSE 8080
+#ssl
+RUN cd /usr/local/tomcat; mkdir ssl
+COPY selfsigned.jks /usr/local/tomcat/ssl/selfsigned.jks
+EXPOSE 8443
 CMD ["catalina.sh", "run"]
-

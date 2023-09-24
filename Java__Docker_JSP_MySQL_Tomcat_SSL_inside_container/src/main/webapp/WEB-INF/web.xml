@@ -1,0 +1,33 @@
+<web-app>  
+
+<!-- Desactivar el acceso directo a los servlets -->
+	<servlet>
+		<servlet-name>Error</servlet-name>
+		<servlet-class>ErrorServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Error</servlet-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</servlet-mapping>	  
+
+  <!-- Redirigir el trafico de http a https-->
+<security-constraint>
+  <web-resource-collection>
+    <web-resource-name>Entire Application</web-resource-name>
+    <url-pattern>/*</url-pattern>
+  </web-resource-collection>
+  <user-data-constraint>
+    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+  </user-data-constraint>
+</security-constraint>
+
+<!-- Formatear encoding de los jsp-->
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+    </jsp-property-group>
+  </jsp-config>
+
+</web-app>  

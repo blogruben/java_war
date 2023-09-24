@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  mydb:
+    image:  my-db
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.db
+      args:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    container_name: my-sql-db
+    restart: unless-stopped
+    ports:
+    - "${MYSQL_PORT}:3306"
+    volumes:
+    - mysql-vol:/var/lib/mysql
+    networks:
+    - webdock
+  myapp:
+    image:  my-app
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.server
+      args:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    container_name: tomcat-app-example
+    depends_on:
+      - mydb
+    links:
+      - mydb
+    ports:
+      - "8443:8443"
+    volumes:
+      # No sincronizamos server.xml ya que necesita reiniciar el servidor
+      - ./docker/app.war:/usr/local/tomcat/webapps/app.war
+      - ./docker/selfsigned.jks:/usr/local/tomcat/ssl/selfsigned.jks
+    networks:
+      - webdock
+networks:
+  webdock:
+volumes:
+  mysql-vol:

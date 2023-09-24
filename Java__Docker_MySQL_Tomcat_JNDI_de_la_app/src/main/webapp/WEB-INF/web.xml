@@ -1,0 +1,36 @@
+<web-app>  
+  
+<servlet>  
+  <servlet-name>inicio</servlet-name>  
+  <jsp-file>/variables.jsp</jsp-file>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>inicio</servlet-name>  
+<url-pattern>/vars</url-pattern>  
+</servlet-mapping>  
+
+<servlet>
+  <servlet-name>DB</servlet-name>
+  <servlet-class>com.ruben.java.web.MySQLInfo</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>DB</servlet-name>
+  <url-pattern>/bbdd</url-pattern>
+</servlet-mapping>
+  
+<resource-ref>
+  <description>DB Connection</description>
+  <res-ref-name>jdbc/MyDB</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+</resource-ref>
+
+<jsp-config>
+  <jsp-property-group>
+    <url-pattern>*.jsp</url-pattern>
+    <page-encoding>UTF-8</page-encoding>
+  </jsp-property-group>
+</jsp-config>
+
+</web-app>  
