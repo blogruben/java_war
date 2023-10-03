@@ -1,0 +1,20 @@
+<web-app>  
+  
+<welcome-file-list>
+    <welcome-file>productlist.jsp</welcome-file>
+</welcome-file-list>
+  
+<resource-ref>
+  <description>DB Connection</description>
+  <res-ref-name>jdbc/MyDB</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+</resource-ref>
+
+<jsp-config>
+  <jsp-property-group>
+    <url-pattern>*.jsp</url-pattern>
+    <page-encoding>UTF-8</page-encoding>
+  </jsp-property-group>
+</jsp-config>
+
+</web-app>  

@@ -3,14 +3,14 @@
 <body>  
 <p>Hola</p>
 <p><% out.print(2*5); %></p>  
-#{2*3}
-<p>${pageContext.request.serverName}</p>
-<p><% out.print(request.getServletPath()); %></p>
-<p><% out.print(request.getServerName()); %></p>
-<p><% out.print(request.getServerPort()); %></p>
-<p><% out.print(request.getServletPath()); %></p>
-<p><% out.print(request.getContextPath()); %></p>
-<p><% out.print(request.getRequestURL()); %></p>
+${pageContext.request.contextPath}
+<p>getServerName    <% out.print(request.getServerName()); %></p>
+<p>getServerPort    <% out.print(request.getServerPort()); %></p>
+<p>getServletPath   <% out.print(request.getServletPath()); %></p>
+<p>getContextPath   <% out.print(request.getContextPath()); %></p>
+<p>getRequestURI    <% out.print(request.getRequestURI()); %></p>
+<p>getRequestURL    <% out.print(request.getRequestURL()); %></p>
       
+
 </body>  
 </html>  

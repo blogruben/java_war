@@ -1,0 +1,54 @@
+apply plugin: 'war'
+apply plugin: 'java'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1' 
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.29'
+    implementation 'javax.servlet:jstl:1.2'
+}
+
+war {
+    archiveFileName = 'app.war'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task wrapVersion(type: Wrapper) {
+   gradleVersion = '8.2.1' 
+}
+
+task deleteBuild(type: Delete) {
+    doFirst {
+        File[] files = [new File('./build'),new File('./bin')]; 
+        for(File file in files) { 
+            if (file.exists()) {
+                delete file.listFiles() 
+                println(file.getName() +' eliminado')
+            } else {
+                println(file.getName() +' no existe')
+            }
+        } 
+    }
+}
+
+task copyWar(type: Copy) {
+    from "./build/libs/app.war"
+	into "./docker"
+    doLast {
+        println('copiado')
+    }
+}
+
+task release(type: GradleBuild) {
+    tasks = [
+      'deleteBuild', 
+      'build',
+      'copyWar'
+    ]
+}

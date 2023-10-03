@@ -15,6 +15,7 @@ Vamos http://localhost:8080/
 |http://localhost:8080/hola                         | llamamos al servlet http://FormularioServlet.java | 
 |http://localhost:8080/verParametros                | llamamos parametroInicio/mostrarVariable.jsp atraves de web.xml | 
 |http://localhost:8080/compilar/hola.jsp            | llamamos a jsp directamente | 
+|http://localhost:8080/compilar/verURL.jsp          |   | 
 |http://localhost:8080/session/session.html         |   | 
 |http://localhost:8080/etiquetas/tiposEtiqueta.jsp  |   | 
 |http://localhost:8080/depurar/traza.jsp            |   | 
