@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"  xmlns:f = "http://java.sun.com/jsf/core"  xmlns:h = "http://java.sun.com/jsf/html">
+
+   <h:head>
+      <title>Select</title>
+      <script type = "text/javascript">   
+         function showCheckedValue() { 
+            alert(document.getElementById('jsfForm1:chkRememberMe').checked);	 
+         }
+      </script>
+   </h:head>
+
+   <h:body>
+
+      <hr />
+      <h2>SelectBooleanCheckbox</h2>
+      <h:form id = "jsfForm1">
+         <h:selectBooleanCheckbox value = "Remember Me" id = "chkRememberMe" />Es verdad ?
+         <h:commandButton value = "Show Checked" onclick = "showCheckedValue()" />
+      </h:form> 
+
+      <hr />
+      <h:form>
+         <h2>SelectManyCheckbox</h2> 
+         <h:selectManyCheckbox value = "#{selectData.dataSelectManyCheckbox}">
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
+            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
+            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+         </h:selectManyCheckbox>
+         <h:commandButton value = "Enviar" action = "result/resultSelectManyCheckbox" />
+      </h:form> 
+
+      <hr />
+      <h:form>
+         <h2>SelectOneRadio</h2> 
+         <h:selectOneRadio value = "#{selectData.dataSelectOneRadio}">
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
+            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
+            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+         </h:selectOneRadio>	   		
+         <h:commandButton value = "Enviar" action = "result/resultSelectOneRadio" />
+      </h:form> 
+
+      <hr /> 
+      <h:form> 
+         <h2>SelectOneListbox</h2>  
+         <h:selectOneListbox value = "#{selectData.dataSelectOneListbox}"> 
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" /> 
+            <f:selectItem itemValue = "2" itemLabel = "Item 2" /> 
+            <f:selectItem itemValue = "3" itemLabel = "Item 3" /> 
+            <f:selectItem itemValue = "4" itemLabel = "Item 4" /> 
+            <f:selectItem itemValue = "5" itemLabel = "Item 5" />     
+         </h:selectOneListbox>  
+         <h:commandButton value = "Enviar" action = "result/resultSelectOneListbox" /> 
+      </h:form>  
+
+      <hr />
+      <h:form>
+         <h2>SelectManyListbox</h2> 
+         <h:selectManyListbox value = "#{selectData.dataSelectManyListbox}">
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "3" itemLabel = "Item 3" />
+            <f:selectItem itemValue = "4" itemLabel = "Item 4" />
+            <f:selectItem itemValue = "5" itemLabel = "Item 5" />
+         </h:selectManyListbox>
+         <h:commandButton value = "Enviar" action = "result/resultSelectManyListbox" />
+      </h:form> 	
+
+      <hr /> 
+      <h:form> 
+         <h2>SelectOneMenu</h2>  
+         <h:selectOneMenu value = "#{selectData.dataSelectOneMenu}"> 
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" /> 
+            <f:selectItem itemValue = "2" itemLabel = "Item 2" /> 
+            <f:selectItem itemValue = "3" itemLabel = "Item 3" /> 
+            <f:selectItem itemValue = "4" itemLabel = "Item 4" /> 
+            <f:selectItem itemValue = "5" itemLabel = "Item 5" />     
+         </h:selectOneMenu>  
+         <h:commandButton value = "Enviar" action = "result/resultSelectOneMenu" /> 
+      </h:form> 
+
+   </h:body>
+</html>

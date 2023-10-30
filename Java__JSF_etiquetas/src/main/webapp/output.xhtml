@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"  xmlns:f = "http://java.sun.com/jsf/core"  xmlns:h = "http://java.sun.com/jsf/html">
+
+   <h:head>
+      <title>Output</title>
+   </h:head>
+
+   <h:body>
+      <h1>OutputText OutputFormat GraphicImage OutputStylesheet OutputScript</h1>
+
+      <hr />
+      <h:form>
+         <h3>OutputText</h3>
+         <h:outputText value = "Hello World"/>
+      </h:form>
+
+      <hr />
+      <h:form>
+         <h3>OutputFormat</h3>
+         <h:outputFormat value = "parameter 1 : {0}, parameter 2 : {1}" >
+            <f:param value = "Item 1" />
+            <f:param value = "Item 2" />
+         </h:outputFormat>	
+      </h:form>
+      
+      <hr />
+      <h:form>      
+         <h3>GraphicImage</h3>
+         <h:graphicImage value = "/imagen/girasol.jpg"/>
+      </h:form>
+
+      <!--El fichero styles.css tiene que estar en resources/css, sino da el error RES_NOT_FOUND -->
+      <h:outputStylesheet library = "css" name = "styles.css" /> 
+      <hr />
+      <h:form>
+         <h3>OutputStylesheet</h3>
+         <div class = "message">Hello World!</div>
+      </h:form>
+
+      <h:outputScript library = "js" name = "help.js"  /> 
+      <hr />
+      <h:form>
+         <h3>OutputScript</h3>
+         <h:commandButton value="click" onclick = "showMessage();" />
+      </h:form> 
+
+      <h:outputScript>
+         alert('OutputScript');
+      </h:outputScript>
+
+   </h:body>
+</html>

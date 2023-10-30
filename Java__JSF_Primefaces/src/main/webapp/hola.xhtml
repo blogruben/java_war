@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+    </h:head>
+    <h:body>
+        <p:inputText value="#{bean.valueText}" pt:placeholder="Watermark here"/>
+        
+        <h:form id="form">
+            <p:commandButton value="Save" action="#{bean.save()}" />
+          </h:form>
+    </h:body>
+</html>

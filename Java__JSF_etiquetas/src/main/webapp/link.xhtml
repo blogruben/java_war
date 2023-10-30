@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+   <html xmlns = "http://www.w3.org/1999/xhtml"  xmlns:f = "http://java.sun.com/jsf/core"  xmlns:h = "http://java.sun.com/jsf/html">
+
+   <h:head>
+      <title>Link</title>
+      <script type = "text/javascript">   
+
+      </script>
+   </h:head>
+
+   <h:body>
+      <h1>CommandButton Link CommandLink OutputLink PanelGrid</h1>
+
+      <hr />
+      <h2>CommandButton</h2>
+      <h:form>
+         <h:commandButton value = "Pulsame!" onclick = "alert('Hola mundo!');" />
+      </h:form>
+
+      <hr />
+      <h2>Link</h2>
+      <h:form>
+         <h:link value = "Pagina 1" outcome = "result/page1" />
+      </h:form>
+
+      <hr />
+      <h2>CommandLink</h2>
+      <h:form>
+         <h:commandLink value = "Pagina 1" action = "result/page1" />
+      </h:form>
+
+      <hr />
+      <h2>OutputLink</h2>
+      <h:form>
+         <h:outputLink value = "result/page1.jsf" >Page 1</h:outputLink>
+      </h:form>
+
+      <hr />
+      <h2>PanelGrid</h2>
+      <h:form>
+         <h:panelGrid id = "panel" columns = "2" border = "1"
+            cellpadding = "10" cellspacing = "1">
+            
+            <f:facet name = "header">
+               <h:outputText value = "Login"/>
+            </f:facet>
+            <h:outputLabel value = "Username" />
+            <h:inputText  />
+            <h:outputLabel value = "Password" />
+            <h:inputSecret />
+            
+            <f:facet name = "footer">
+               <h:panelGroup style = "display:block; text-align:center">
+                  <h:commandButton id = "submit" value = "Submit" />
+               </h:panelGroup>
+            </f:facet>
+         </h:panelGrid>
+      </h:form>
+
+   </h:body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+   <html xmlns = "http://www.w3.org/1999/xhtml"  xmlns:f = "http://java.sun.com/jsf/core"  xmlns:h = "http://java.sun.com/jsf/html">
+
+   <h:head>
+      <title>Input</title>
+      <script type = "text/javascript">   
+         function showHiddenValue() {   
+            alert(document.getElementById('formularioOculto:valorOculto').value);	 
+         }   
+      </script>
+   </h:head>
+   
+   <h:body>
+   <h1>InputText InputSecret InputTextArea InputHidden</h1>
+
+   <hr />
+   <h:form>
+      <h3>InputText</h3>
+      <h:inputText value = "Hello World!"/>
+      <h3>Read-Only input text box</h3>
+      <h:inputText value = "Hello World" readonly = "true"/>
+   </h:form>
+
+   <hr />
+   <h:form>
+      <h3>InputSecret</h3>
+      <h:inputSecret value = "password"/>
+   </h:form>
+
+   <hr />
+   <h:form>
+      <h3>InputTextArea</h3>
+      <h:inputTextarea row = "10" col = "10" value = "Hello World!"/>
+   </h:form> 
+
+   <hr />
+   <h2>InputHidden</h2>
+   <h:form id = "formularioOculto">
+      <h:inputHidden value = "VALOR_OCULTO" id = "valorOculto" />
+      <h:commandButton value = "Mostar valor oculto" onclick = "showHiddenValue()" />
+   </h:form> 
+
+   </h:body>
+</html>

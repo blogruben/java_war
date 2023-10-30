@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"
+   xmlns:f = "http://java.sun.com/jsf/core"
+   xmlns:h = "http://java.sun.com/jsf/html">
+
+   <h:body>
+      <h2>Implicit Navigation</h2>
+      <hr />
+      
+      <h:form>
+         <h3>Using Managed Bean</h3>
+         <h:commandButton action = "#{navigationController.moveToPage1}" value = "Pagina uno" />
+         <h3>Using JSF outcome</h3>
+         <h:commandButton action = "page2" value = "Pagina dos" />
+      </h:form>
+      <br/>
+      
+      <h2>Conditional Navigation</h2>
+      <hr />
+      <h:form>
+         <h:commandLink action = "#{navigationController.showPage}" value="Pagina uno">
+            <f:param name = "pageId" value = "1" />
+         </h:commandLink>
+         &nbsp;     
+         <h:commandLink action = "#{navigationController.showPage}" value="Pagina dos">
+            <f:param name = "pageId" value = "2" />
+         </h:commandLink>
+         &nbsp;     
+         <h:commandLink action = "#{navigationController.showPage}" value = "Home">
+            <f:param name = "pageId" value = "3" />
+         </h:commandLink>
+      </h:form>
+      <br/>
+      
+      <h2>"From Action" Navigation</h2>
+      <hr />
+      
+      <h:form>
+         <h:commandLink action = "#{navigationController.processPage1}" value = "Pagina uno" />   
+         &nbsp;  
+         <h:commandLink action = "#{navigationController.processPage2}" value = "Pagina dos" />     
+      </h:form>
+      <br/>
+      
+      <h2>Forward vs Redirection Navigation</h2>
+      <hr />
+      <h:form>
+         <h3>Forward</h3>
+         <h:commandButton action = "page1" value = "Pagina uno" />
+         <h3>Redirect</h3>
+         <h:commandButton action = "page1?faces-redirect = true" value = "Pagina uno" />
+      </h:form>
+   </h:body>
+</html>
