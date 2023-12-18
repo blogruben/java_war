@@ -1,0 +1,35 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"  xmlns:f = "http://java.sun.com/jsf/core"  xmlns:h = "http://java.sun.com/jsf/html">
+
+<h:head>
+   <title>PasarVar</title>
+   <script type = "text/javascript">   
+   </script>
+</h:head>
+
+<h:body>
+    <h1>Pasar Varables de JS a Java</h1>
+    <script>
+        function getVars() {
+            var x = Math.floor(Math.random() * 100);
+            var y = Math.floor(Math.random() * 100);
+        
+            document.getElementById("formId:x").value = x;
+            document.getElementById("formId:y").value = y;
+        }
+    </script>
+ 
+    <h:form id="formId">
+        <h:inputHidden id="x" value="#{pasarVariables.x}" />
+        <h:inputHidden id="y" value="#{pasarVariables.y}" />
+        <h:commandButton value="Enviar" onclick="getVars()" action="#{pasarVariables.submit}" />
+        <!--se muestran las variables en el sysout del servidor-->
+    </h:form>
+
+    <hr />
+
+</h:body>
+</html>

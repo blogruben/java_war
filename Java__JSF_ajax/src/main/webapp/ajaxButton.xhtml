@@ -16,13 +16,12 @@
 
 <h:form>
     <h:inputText value="#{personaBean.nombre}">
-        <f:ajax event="keyup" execute="@this" render="zona"/>
+        <f:ajax event="keyup" execute="@this" render="zona"/> <!--@form-->
     </h:inputText>           
-    <h:commandButton value="Aceptar" action="aceptar"/>
+    <h:commandButton value="Aceptar" action="ajaxButtonResult"/>
     <hr />
-    <p>Con ajax: <h:outputText id="zona" value="#{personaBean.nombre}"/></p>
+    <p>El nombre es: <h:outputText id="zona" value="#{personaBean.nombre}"/></p>
 </h:form>
     <hr />
-    <p>Sin ajax: <h:outputText value="#{personaBean.nombre}"/></p>
 </h:body>
  </html>

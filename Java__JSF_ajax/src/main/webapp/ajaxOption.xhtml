@@ -1,0 +1,35 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"  xmlns:f = "http://java.sun.com/jsf/core"  xmlns:h = "http://java.sun.com/jsf/html">
+
+<h:head>
+   <title>PasarVar</title>
+   <script type = "text/javascript">   
+   </script>
+</h:head>
+
+<h:body>
+    <h1>Pasar Varables de JS a Java</h1>
+    <script>
+        function getVars() {
+            var x = Math.floor(Math.random() * 100);
+            var y = Math.floor(Math.random() * 100);
+        
+            document.getElementById("formId:x").value = x;
+            document.getElementById("formId:y").value = y;
+        }
+    </script>
+ 
+    <h:selectOneMenu id="checklist" value="#{checklistReportAction.checklist}" required="true">
+       <s:selectItems value="#{checklistReportAction.checklists}" var="_checklist"
+        label="#{_checklist.name}" noSelectionLabel="Select Checklist..."/>
+        <s:convertEntity />                               
+    <f:ajax  render="filterPanel checklistFieldPanel" listener="#{checklistReportAction.selectListener}" event="change" execute="@this" onevent="showCheckBox"/>
+    </h:selectOneMenu>
+
+    <hr />
+
+</h:body>
+</html>
