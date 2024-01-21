@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+   xmlns:h = "http://java.sun.com/jsf/html"
+   xmlns:f = "http://java.sun.com/jsf/core">
+   
+   <h:head>
+      <title>JSF tutorial</title>			
+   </h:head>
+   
+   <h:body> 
+      <h2>h:validateLength Example</h2>
+      
+      <h:form>
+         <h:panelGrid columns="1">
+            <h:panelGrid columns="3">
+            <h:outputLabel>Name:</h:outputLabel>
+            <h:inputText id = "nameInput" value = "#{userData.name}" label = "name" >
+               <f:validateLength minimum = "5" maximum = "8" />
+            </h:inputText>	
+            <h:message for = "nameInput" style = "color:red" />
+
+            <h:outputLabel>Age:</h:outputLabel>
+            <h:inputText id = "ageInput" value = "#{userData.age}" label = "age" >
+               <f:validateLongRange minimum = "5" maximum = "200" />
+            </h:inputText>
+            <h:message for = "ageInput" style = "color:blueviolet" />
+
+            <h:outputLabel>Salary:</h:outputLabel>
+            <h:inputText id = "salaryInput" value = "#{userData.salary}" label = "salary" >
+               <f:validateDoubleRange minimum = "1000.50" maximum = "10000.50" />
+            </h:inputText>
+            <h:message for = "salaryInput" style = "color:darkred" />
+
+            <h:outputLabel>Password:</h:outputLabel>
+            <h:inputSecret id = "passwordInput" value = "#{userData.password}" label = "password" >
+               <f:validateRegex pattern = "(.*[a-z])" />
+            </h:inputSecret>
+            <h:message for = "passwordInput" style = "color:blue" />
+            </h:panelGrid>
+            <!-- password contains lower case letters only -->
+            <h:commandButton value = "submit" action = "result"/>
+         </h:panelGrid>
+
+      </h:form>   
+
+   </h:body>
+</html>
